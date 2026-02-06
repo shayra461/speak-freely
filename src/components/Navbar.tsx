@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Shield, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import logoColored from "@/assets/logo-colored.svg";
+import logoWhite from "@/assets/logo-white.svg";
 
 const navLinks = [
   { label: "How It Works", href: "/how-it-works" },
@@ -43,13 +45,12 @@ export function Navbar() {
     >
       <div className="container-wide flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <Shield className="h-6 w-6 text-accent" />
-          <span className={`font-heading font-semibold text-lg tracking-tight transition-colors ${
-            showTransparent ? "text-primary-foreground" : "text-foreground"
-          }`}>
-            Away From Work
-          </span>
+        <Link to="/" className="flex items-center group">
+          <img
+            src={showTransparent ? logoWhite : logoColored}
+            alt="Away From Work"
+            className="h-10 md:h-12 w-auto transition-opacity"
+          />
         </Link>
 
         {/* Desktop Links */}

@@ -1,8 +1,9 @@
 import { FadeIn } from "@/components/FadeIn";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Shield, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import logoWhite from "@/assets/logo-white.svg";
 
 const footerLinks = [
   { label: "How It Works", href: "/how-it-works" },
@@ -50,13 +51,12 @@ export function Footer() {
       {/* Footer Bottom */}
       <div className="container-wide py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <Link to="/" className="flex items-center gap-2 group">
-            <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
-              <Shield className="h-5 w-5 text-sky-glow" />
-            </motion.div>
-            <span className="font-heading font-semibold text-sm">
-              Away From Work, LLC
-            </span>
+          <Link to="/" className="flex items-center group">
+            <img
+              src={logoWhite}
+              alt="Away From Work"
+              className="h-10 w-auto"
+            />
           </Link>
 
           <nav className="flex flex-wrap justify-center gap-6">
