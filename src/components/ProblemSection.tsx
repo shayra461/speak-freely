@@ -56,12 +56,12 @@ export function ProblemSection() {
                 className="w-full h-72 object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-accent/30 flex items-end p-6">
+              <div className="absolute inset-0 bg-foreground/50 flex items-end p-6">
                 <div>
-                  <p className="font-heading font-bold text-xl text-foreground">
+                  <p className="font-heading font-bold text-xl text-primary-foreground">
                     Away From Work
                   </p>
-                  <p className="text-foreground/80 text-sm mt-1">
+                  <p className="text-primary-foreground/80 text-sm mt-1">
                     Calm · Open · Reflective
                   </p>
                 </div>
