@@ -1,4 +1,5 @@
 import { FadeIn } from "@/components/FadeIn";
+import { motion } from "framer-motion";
 import { BarChart3 } from "lucide-react";
 
 export function InsightsSection() {
@@ -6,12 +7,24 @@ export function InsightsSection() {
     <section className="section-padding bg-background">
       <div className="container-narrow text-center">
         <FadeIn>
-          <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mx-auto mb-6">
+          <motion.div
+            className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mx-auto mb-6"
+            whileInView={{ rotate: [0, 360], scale: [0.5, 1] }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            whileHover={{ scale: 1.15, rotate: 10 }}
+          >
             <BarChart3 className="h-6 w-6 text-accent" />
-          </div>
-          <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">
+          </motion.div>
+          <motion.p
+            className="text-accent font-semibold text-sm uppercase tracking-widest mb-3"
+            initial={{ opacity: 0, letterSpacing: "0.1em" }}
+            whileInView={{ opacity: 1, letterSpacing: "0.2em" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             Insights & Phase 2
-          </p>
+          </motion.p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
             Turning Conversations Into Insights
           </h2>
