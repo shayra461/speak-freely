@@ -1,17 +1,18 @@
 import { FadeIn } from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
 import { Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const footerLinks = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Privacy Policy", href: "#privacy" },
-  { label: "Terms of Use", href: "#" },
-  { label: "Contact", href: "#contact" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Use", href: "/terms" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-primary text-primary-foreground">
+    <footer className="bg-primary text-primary-foreground">
       {/* CTA Band */}
       <div className="section-padding border-b border-primary-foreground/10">
         <div className="container-narrow text-center">
@@ -24,8 +25,8 @@ export function Footer() {
               away from your employer.
             </p>
             <div className="mt-8">
-              <Button variant="hero" size="xl">
-                Begin Now
+              <Button variant="hero" size="xl" asChild>
+                <Link to="/contact">Begin Now</Link>
               </Button>
             </div>
           </FadeIn>
@@ -35,22 +36,22 @@ export function Footer() {
       {/* Footer Bottom */}
       <div className="container-wide py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <Shield className="h-5 w-5 text-sky-glow" />
             <span className="font-heading font-semibold text-sm">
               Away From Work, LLC
             </span>
-          </div>
+          </Link>
 
           <nav className="flex flex-wrap justify-center gap-6">
             {footerLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.href}
                 className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 

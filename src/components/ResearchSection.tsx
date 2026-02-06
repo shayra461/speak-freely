@@ -1,10 +1,11 @@
 import { FadeIn } from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
 import { BookOpen } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function ResearchSection() {
   return (
-    <section id="research" className="section-padding bg-section-alt">
+    <section className="section-padding bg-section-alt">
       <div className="container-narrow text-center">
         <FadeIn>
           <p className="text-accent font-semibold text-sm uppercase tracking-widest mb-3">
@@ -41,7 +42,7 @@ export function ResearchSection() {
             </p>
             <div className="mt-8">
               <Button variant="outline" size="lg" asChild>
-                <a href="#methodology">Learn About Our Methodology</a>
+                <Link to="/research">Learn About Our Methodology</Link>
               </Button>
             </div>
           </div>

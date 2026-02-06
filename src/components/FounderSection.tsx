@@ -4,7 +4,7 @@ import founderImage from "@/assets/founder.jpg";
 
 export function FounderSection() {
   return (
-    <section id="about" className="section-padding bg-section-alt">
+    <section className="section-padding bg-section-alt">
       <div className="container-wide">
         <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-12 items-center">
           <FadeIn direction="left" className="md:col-span-2">

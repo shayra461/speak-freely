@@ -2,6 +2,7 @@ import { FadeIn, StaggerContainer, staggerItem } from "@/components/FadeIn";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Globe, Calendar, MessageCircle, Compass, Sun } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -34,7 +35,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="section-padding bg-section-alt">
+    <section className="section-padding bg-section-alt">
       <div className="container-wide">
         <FadeIn>
           <div className="container-narrow text-center mb-16">
@@ -81,7 +82,7 @@ export function HowItWorks() {
         <FadeIn delay={0.5}>
           <div className="text-center mt-8">
             <Button variant="cta" size="lg" asChild>
-              <a href="#contact">Schedule Your Session</a>
+              <Link to="/contact">Schedule Your Session</Link>
             </Button>
           </div>
         </FadeIn>

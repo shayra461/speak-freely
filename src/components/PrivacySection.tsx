@@ -12,7 +12,7 @@ const privacyItems = [
 
 export function PrivacySection() {
   return (
-    <section id="privacy" className="section-padding gradient-navy">
+    <section className="section-padding gradient-navy">
       <div className="container-wide">
         <FadeIn>
           <div className="container-narrow text-center mb-16">
