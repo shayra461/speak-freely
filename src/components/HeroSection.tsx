@@ -3,6 +3,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { Shield, FlaskConical, Scale, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { TypewriterText } from "@/components/TypewriterText";
 import heroImage from "@/assets/hero-image.jpg";
 
 const trustSignals = [
@@ -19,7 +20,7 @@ export function HeroSection() {
         <motion.img
           src={heroImage}
           alt="African American professional in calm reflection near a window"
-          className="w-full h-full object-cover scale-105"
+          className="w-full h-full object-cover object-[50%_25%] scale-105"
           initial={{ scale: 1.15 }}
           animate={{ scale: 1.05 }}
           transition={{ duration: 8, ease: "easeOut" }}
@@ -59,13 +60,15 @@ export function HeroSection() {
               </motion.div>
             </FadeIn>
 
-            <FadeIn delay={0.2}>
+            <div className="min-h-[160px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] text-primary-foreground">
-                Psychological Safety
+                <TypewriterText text="Navigate Workplace Challenges" delay={0.5} speed={0.06} />
                 <br />
-                <span className="text-sky-glow">Away From Work</span>
+                <span className="text-sky-glow">
+                  <TypewriterText text="Safely & Privately" delay={2.5} speed={0.08} />
+                </span>
               </h1>
-            </FadeIn>
+            </div>
 
             <FadeIn delay={0.4}>
               <p className="mt-6 text-lg md:text-xl leading-relaxed text-primary-foreground/75 max-w-xl">

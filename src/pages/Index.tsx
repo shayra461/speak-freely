@@ -1,10 +1,12 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { ProblemSection } from "@/components/ProblemSection";
+import { WorkplaceSituationsSection } from "@/components/WorkplaceSituationsSection";
 import { ResearchSection } from "@/components/ResearchSection";
 import { SolutionSection } from "@/components/SolutionSection";
 import { HowItWorks } from "@/components/HowItWorks";
 import { AudienceSection } from "@/components/AudienceSection";
+import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -14,10 +16,12 @@ const Index = () => {
       <main>
         <HeroSection />
         <ProblemSection />
+        <WorkplaceSituationsSection />
         <HowItWorks />
         <ResearchSection />
         <SolutionSection />
         <AudienceSection />
+        <FAQSection />
       </main>
       <Footer />
     </div>

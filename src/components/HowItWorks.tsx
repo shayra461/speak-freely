@@ -1,8 +1,9 @@
 import { FadeIn, StaggerContainer, staggerItem } from "@/components/FadeIn";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Globe, Calendar, MessageCircle, Compass, Sun, ArrowRight } from "lucide-react";
+import { Globe, Calendar, MessageCircle, Compass, Sun, ArrowRight, ArrowRight as ArrowIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Card, CardContent } from "@/components/ui/card";
 
 const steps = [
   {
@@ -35,7 +36,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="section-padding bg-section-alt">
+    <section className="section-padding bg-section-alt overflow-hidden">
       <div className="container-wide">
         <FadeIn>
           <div className="container-narrow text-center mb-16">
@@ -54,58 +55,53 @@ export function HowItWorks() {
           </div>
         </FadeIn>
 
-        <StaggerContainer className="max-w-3xl mx-auto space-y-0" staggerDelay={0.15}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 relative" staggerDelay={0.1}>
+          {/* Connector Line (Desktop) */}
+          <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-transparent via-border to-transparent -z-10" />
+
           {steps.map((step, i) => (
             <motion.div
               key={step.title}
               variants={staggerItem}
-              whileHover={{ x: 8 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              whileHover={{ y: -8 }}
+              className="relative"
             >
-              <div className="flex gap-6 items-start group">
-                {/* Timeline */}
-                <div className="flex flex-col items-center">
+              <Card className="h-full border-none shadow-sm hover:shadow-md transition-shadow bg-card/80 backdrop-blur-sm group">
+                <CardContent className="p-6 flex flex-col items-center text-center h-full">
                   <motion.div
-                    className="w-12 h-12 rounded-xl gradient-sky flex items-center justify-center shadow-md"
-                    whileHover={{ scale: 1.15, rotate: 5 }}
-                    whileInView={{ scale: [0.5, 1.1, 1] }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-100 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300 relative z-10"
                   >
-                    <step.icon className="h-5 w-5 text-accent-foreground" />
+                    <step.icon className="h-7 w-7 text-sky-500" />
+                    <div className="absolute inset-0 bg-sky-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   </motion.div>
-                  {i < steps.length - 1 && (
-                    <motion.div
-                      className="w-px h-16 bg-border mt-2"
-                      initial={{ scaleY: 0 }}
-                      whileInView={{ scaleY: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                      style={{ originY: 0 }}
-                    />
-                  )}
-                </div>
 
-                {/* Content */}
-                <div className="pb-8">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">
-                    Step {i + 1}
-                  </p>
-                  <h3 className="font-heading font-semibold text-lg text-foreground group-hover:text-accent transition-colors">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground mt-1 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">
+                      Step 0{i + 1}
+                    </p>
+                    <h3 className="font-heading font-semibold text-lg text-foreground mb-3 group-hover:text-sky-600 transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {/* Arrow Indicator for flow on desktop */}
+                  {i < steps.length - 1 && (
+                    <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-0 text-slate-300">
+                      <ArrowIcon className="w-6 h-6 opacity-30" />
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </StaggerContainer>
 
-        <FadeIn delay={0.5}>
-          <div className="text-center mt-8">
-            <Button variant="cta" size="lg" className="group" asChild>
+        <FadeIn delay={0.6}>
+          <div className="text-center mt-16">
+            <Button variant="cta" size="lg" className="group rounded-full px-8 shadow-lg shadow-sky-500/20" asChild>
               <Link to="/contact">
                 Schedule Your Session
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

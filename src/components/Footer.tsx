@@ -55,7 +55,7 @@ export function Footer() {
             <img
               src={logoWhite}
               alt="Away From Work"
-              className="h-14 w-auto"
+              className="h-24 md:h-32 w-auto"
             />
           </Link>
 
