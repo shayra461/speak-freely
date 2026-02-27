@@ -25,7 +25,7 @@ const audiences = [
 
 export function AudienceSection() {
   return (
-    <section className="section-padding bg-section-alt">
+    <section id="audience" className="section-padding bg-section-alt">
       <div className="container-wide">
         <FadeIn>
           <div className="container-narrow text-center mb-16">

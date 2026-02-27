@@ -13,6 +13,7 @@ import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import ContactPage from "./pages/ContactPage";
 import WorkplaceScenariosPage from "./pages/WorkplaceScenariosPage";
+import WhoThisIsForPage from "./pages/WhoThisIsForPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/workplace-scenarios" element={<WorkplaceScenariosPage />} />
+          <Route path="/who-this-is-for" element={<WhoThisIsForPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

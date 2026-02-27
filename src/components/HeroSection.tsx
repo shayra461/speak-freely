@@ -4,13 +4,10 @@ import { Shield, FlaskConical, Scale, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { TypewriterText } from "@/components/TypewriterText";
-import heroImage from "@/assets/hero-image.jpg";
+// NOTE: Please save your image as 'new-hero-image.jpg' in the src/assets folder
+import heroImage from "@/assets/new-hero-image.jpg";
 
-const trustSignals = [
-  { icon: Shield, label: "Confidential & Secure" },
-  { icon: FlaskConical, label: "Research-Backed Approach" },
-  { icon: Scale, label: "Not Legal or Mental Health Advice" },
-];
+
 
 export function HeroSection() {
   return (
@@ -19,13 +16,15 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <motion.img
           src={heroImage}
-          alt="African American professional in calm reflection near a window"
+          alt="A diverse group of working adults representing various industries, races, and ages"
           className="w-full h-full object-cover object-[50%_25%] scale-105"
           initial={{ scale: 1.15 }}
           animate={{ scale: 1.05 }}
           transition={{ duration: 8, ease: "easeOut" }}
           loading="eager"
         />
+        {/* Added a darker overlay to ensure text readability against the bright new image */}
+        <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 gradient-hero-overlay" />
       </div>
 
@@ -46,26 +45,14 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Text Content */}
           <div className="lg:col-span-7">
-            <FadeIn delay={0.1}>
-              <motion.div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-light/30 bg-sky-light/10 backdrop-blur-sm mb-6"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                <Shield className="h-4 w-4 text-sky-glow" />
-                <span className="text-sm font-medium text-primary-foreground/90">
-                  Confidential & Psychologically Safe
-                </span>
-              </motion.div>
-            </FadeIn>
 
-            <div className="min-h-[160px] md:min-h-[200px] lg:min-h-[240px] flex flex-col justify-center">
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] text-primary-foreground">
-                <TypewriterText text="Navigate Workplace Challenges" delay={0.5} speed={0.06} />
+
+            <div className="min-h-[100px] md:min-h-[140px] lg:min-h-[180px] flex flex-col justify-center overflow-visible">
+              <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold leading-tight text-primary-foreground whitespace-nowrap">
+                <TypewriterText text="Navigate Workplace Challenges" delay={0.5} speed={0.05} />
                 <br />
                 <span className="text-sky-glow">
-                  <TypewriterText text="Safely & Privately" delay={2.5} speed={0.08} />
+                  <TypewriterText text="Safely & Privately" delay={2.2} speed={0.06} />
                 </span>
               </h1>
             </div>
@@ -73,84 +60,38 @@ export function HeroSection() {
             <FadeIn delay={0.4}>
               <p className="mt-6 text-lg md:text-xl leading-relaxed text-primary-foreground/75 max-w-xl">
                 Confidential, judgment-free conversations to help you navigate
-                uncomfortable workplace situations — safely, privately, and away
+                uncomfortable workplace problems — safely, privately, and away
                 from your employer.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.6}>
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <Button variant="hero" size="xl" asChild>
-                  <Link to="/contact" className="group">
-                    Start a Confidential Conversation
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <Button variant="hero" size="xl" asChild className="h-auto py-4 px-8 leading-tight text-center">
+                  <Link to="/contact" className="group flex items-center justify-center gap-2">
+                    <Shield className="h-5 w-5 text-white" strokeWidth={2.5} />
+                    <span>Start a Confidential and Psychologically Safe Conversation</span>
                   </Link>
                 </Button>
                 <Button variant="hero-outline" size="xl" asChild>
-                  <Link to="/how-it-works">How It Works</Link>
+                  <Link to="/who-this-is-for">Who This Is For</Link>
                 </Button>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.8}>
-              <div className="mt-12 flex flex-wrap gap-6">
-                {trustSignals.map((signal, i) => (
-                  <motion.div
-                    key={signal.label}
-                    className="flex items-center gap-2 text-primary-foreground/70"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1 + i * 0.15 }}
-                  >
-                    <signal.icon className="h-4 w-4 text-sky-glow" />
-                    <span className="text-sm font-medium">{signal.label}</span>
-                  </motion.div>
-                ))}
+              <div className="mt-12 max-w-2xl p-4 bg-primary-foreground/5 border-l-2 border-sky-glow/50 rounded-r-xl backdrop-blur-sm">
+                <div className="flex gap-3">
+                  <Shield className="h-5 w-5 text-sky-glow shrink-0 mt-0.5" />
+                  <p className="text-sm leading-relaxed text-primary-foreground/70 italic">
+                    <span className="font-semibold not-italic">Disclaimer:</span> Away from Work, LLC does not provide advice, legal, medical, financial, therapeutic, or otherwise. Instead, its role is limited to facilitating a safe space for reflection, exploration, and idea generation.
+                  </p>
+                </div>
               </div>
             </FadeIn>
           </div>
 
-          {/* Floating Stats Card */}
-          <div className="hidden lg:block lg:col-span-5">
-            <FadeIn delay={0.6} direction="right">
-              <motion.div
-                className="bg-card/10 backdrop-blur-md border border-primary-foreground/10 rounded-2xl p-8 shadow-2xl"
-                whileHover={{ y: -4 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <h3 className="font-heading font-semibold text-lg text-primary-foreground mb-6">
-                  Why Away From Work?
-                </h3>
-                <div className="space-y-5">
-                  {[
-                    { stat: "85%", desc: "of employees filter workplace survey responses" },
-                    { stat: "3x", desc: "more candid when surveyed away from work" },
-                    { stat: "40+", desc: "years of executive experience behind AFW" },
-                  ].map((item, i) => (
-                    <motion.div
-                      key={item.stat}
-                      className="flex items-start gap-4"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 1.2 + i * 0.2 }}
-                    >
-                      <span className="font-heading text-2xl font-bold text-sky-glow">
-                        {item.stat}
-                      </span>
-                      <span className="text-sm text-primary-foreground/70 leading-snug mt-1">
-                        {item.desc}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
-                <div className="mt-6 pt-6 border-t border-primary-foreground/10">
-                  <Button variant="hero-outline" size="default" className="w-full" asChild>
-                    <Link to="/research">Explore the Research</Link>
-                  </Button>
-                </div>
-              </motion.div>
-            </FadeIn>
-          </div>
+
         </div>
       </div>
 
