@@ -36,20 +36,18 @@ export function TypewriterText({
     return (
         <span className={className}>
             <motion.span>{displayText}</motion.span>
-            {!animationCompleted && (
-                <motion.span
-                    animate={{ opacity: [0, 1, 0] }}
-                    transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-                    style={{
-                        display: "inline-block",
-                        width: "2px",
-                        height: "1em",
-                        backgroundColor: cursorColor,
-                        marginLeft: "2px",
-                        verticalAlign: "middle",
-                    }}
-                />
-            )}
+            <motion.span
+                animate={animationCompleted ? { opacity: 0 } : { opacity: [0, 1, 0] }}
+                transition={animationCompleted ? { duration: 0.2 } : { duration: 0.8, repeat: Infinity, ease: "linear" }}
+                style={{
+                    display: "inline-block",
+                    width: "2px",
+                    height: "1em",
+                    backgroundColor: cursorColor,
+                    marginLeft: "2px",
+                    verticalAlign: "middle",
+                }}
+            />
         </span>
     );
 }

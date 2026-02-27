@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logoWhite from "@/assets/logo-white.svg";
+import logo from "@/assets/logo.svg";
 
 const footerLinks = [
   { label: "How It Works", href: "/how-it-works" },
@@ -14,13 +14,13 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-white text-slate-900 border-t border-slate-100">
       {/* CTA Band */}
-      <div className="section-padding border-b border-primary-foreground/10 relative overflow-hidden">
+      <div className="section-padding border-b border-slate-200 relative overflow-hidden">
         {/* Animated background accent */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-sky/5 blur-3xl"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-sky-100/50 blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         <div className="container-narrow text-center relative z-10">
@@ -28,7 +28,7 @@ export function Footer() {
             <h2 className="font-heading text-3xl md:text-4xl font-bold">
               Start Your Confidential Conversation Today
             </h2>
-            <p className="mt-4 text-primary-foreground/70 text-lg max-w-xl mx-auto">
+            <p className="mt-4 text-slate-600 text-lg max-w-xl mx-auto">
               Take the first step toward clarity and peace of mind — safely, and
               away from your employer.
             </p>
@@ -53,7 +53,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <Link to="/" className="flex items-center group">
             <img
-              src={logoWhite}
+              src={logo}
               alt="Away From Work"
               className="h-24 md:h-32 w-auto"
             />
@@ -64,7 +64,7 @@ export function Footer() {
               <motion.div key={link.label} whileHover={{ y: -2 }}>
                 <Link
                   to={link.href}
-                  className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                  className="text-sm text-slate-600 hover:text-sky-600 font-medium transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -72,7 +72,7 @@ export function Footer() {
             ))}
           </nav>
 
-          <p className="text-xs text-primary-foreground/40">
+          <p className="text-xs text-slate-500 font-medium">
             © {new Date().getFullYear()} Away From Work, LLC. All rights reserved.
           </p>
         </div>

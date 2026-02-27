@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { PurposeSection } from "@/components/PurposeSection";
-import { SolutionSection } from "@/components/SolutionSection";
-import { AudienceSection } from "@/components/AudienceSection";
+
 import { FounderSection } from "@/components/FounderSection";
 import { Footer } from "@/components/Footer";
 import { FadeIn } from "@/components/FadeIn";
@@ -27,9 +26,9 @@ const AboutPage = () => {
             </FadeIn>
           </div>
         </section>
-        <SolutionSection />
+
         <PurposeSection />
-        <AudienceSection />
+
         <FounderSection />
       </main>
       <Footer />
